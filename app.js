@@ -69,8 +69,6 @@ izracunajBtn.addEventListener("click", () => {
   let ruzaImgLink = "/slike/rose.jpg";
   let ljiljanImgLink = "/slike/lily.png";
   let gerberImgLink = "/slike/gerber.jpg";
-  cenaBezPopusta = document.createElement("p");
-  cenaSaPopustom = document.createElement("p");
 
   // IMAGES RUZE
   if (ruzeInput.value < 10) {
@@ -123,7 +121,8 @@ izracunajBtn.addEventListener("click", () => {
     brojGerbera.textContent = `x ${gerberiInput.value}`;
     gerberDiv.appendChild(brojGerbera);
   }
-
+  // PLACANJE
+  // Placanje Kesom
   if (kesRadio.checked == true) {
     if (bombonjeraChkbox.checked == true) {
       cenaZaSve += 500;
@@ -143,8 +142,13 @@ izracunajBtn.addEventListener("click", () => {
       porudzbinaSection.appendChild(sampanjac);
       sampanjac.textContent = "+ sampanjac";
     }
-    cenaPopust = cenaZaSve;
-  } else {
+    if (cenaZaSve != 0) {
+      cenaBezPopusta = document.createElement("p");
+      cenaBezPopusta.textContent = `Cena je: ${cenaZaSve}`;
+      porudzbinaSection.appendChild(cenaBezPopusta);
+    }
+    //Placanje Karticom
+  } else if (karticaRadio.checked == true) {
     if (bombonjeraChkbox.checked == true) {
       cenaZaSve += 500;
       bombonjera = document.createElement("p");
@@ -169,13 +173,15 @@ izracunajBtn.addEventListener("click", () => {
     } else {
       cenaPopust = cenaZaSve;
     }
-  }
-  if (cenaZaSve != 0) {
-    cenaBezPopusta.textContent = `Cena bez popusta je: ${cenaZaSve}`;
-    cenaSaPopustom.textContent = `Cena sa popustom je: ${cenaPopust}`;
-    porudzbinaSection.appendChild(cenaBezPopusta);
-    porudzbinaSection.appendChild(cenaSaPopustom);
-    izracunajBtn.disabled = true;
+    if (cenaZaSve != 0) {
+      cenaBezPopusta = document.createElement("p");
+      cenaSaPopustom = document.createElement("p");
+      cenaBezPopusta.textContent = `Cena bez popusta je: ${cenaZaSve}`;
+      porudzbinaSection.appendChild(cenaBezPopusta);
+      cenaSaPopustom.textContent = `Cena sa popustom je: ${cenaPopust}`;
+      porudzbinaSection.appendChild(cenaSaPopustom);
+      izracunajBtn.disabled = true;
+    }
   } else {
     cenaBezPopusta = undefined;
     cenaSaPopustom = undefined;
@@ -187,11 +193,13 @@ izracunajBtn.addEventListener("click", () => {
 
 // Resetuj eventListener
 resetujBtn.addEventListener("click", () => {
-  // cena
-  if (cenaBezPopusta != undefined && cenaSaPopustom != undefined) {
+  // cenaBezPopusta
+  if (cenaBezPopusta != undefined) {
     porudzbinaSection.removeChild(cenaBezPopusta);
-    porudzbinaSection.removeChild(cenaSaPopustom);
     cenaBezPopusta = undefined;
+  }
+  if (cenaSaPopustom != undefined) {
+    porudzbinaSection.removeChild(cenaSaPopustom);
     cenaSaPopustom = undefined;
   }
   // pokloni
