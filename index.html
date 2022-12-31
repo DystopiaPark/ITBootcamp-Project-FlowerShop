@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cvecara</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form action="get.php" method="get" id="cvecara-form">
+      <fieldset>
+        <!-- Cvece section -->
+        <h1>Odaberite cvece:</h1>
+        <div>
+          <input
+            type="number"
+            name="ruze"
+            id="ruze-input"
+            placeholder="Cena po cvetu je 150 din."
+          />Ruze
+        </div>
+        <div>
+          <input
+            type="number"
+            name="ljiljani"
+            id="ljiljani-input"
+            placeholder="Cena po cvetu je 120 din."
+          />Ljiljani
+        </div>
+        <div>
+          <input
+            type="number"
+            name="gerberi"
+            id="gerberi-input"
+            placeholder="Cena po cvetu je 70 din."
+          />Gerberi
+        </div>
+        <!-- Dodatni pokloni section -->
+        <h1>Dodatni pokloni</h1>
+        <div>
+          <input
+            type="checkbox"
+            name="bombonjera"
+            id="bombonjera-chkbox"
+          />Bombonjera
+        </div>
+        <div>
+          <input type="checkbox" name="cokolada" id="cokolada-chkbox" />Cokolada
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            name="sampanjac"
+            id="sampanjac-chkbox"
+          />Sampanjac
+        </div>
+        <!-- Placanje section -->
+        <h1>Dodatni pokloni:</h1>
+        <div>
+          <input type="radio" name="placanje" id="kes-radio" checked />Kes
+        </div>
+        <div>
+          <input type="radio" name="placanje" id="kartica-radio" />Kartica
+        </div>
+        <!-- Buttons section -->
+        <button type="button" id="izracunaj-btn">Izracunaj</button>
+        <button type="reset" id="resetuj-btn">Resetuj</button>
+        <!-- Porudzbina section -->
+        <h1>Vasa Porudzbina:</h1>
+        <section id="porudzbina-section"></section>
+      </fieldset>
+    </form>
+    <!-- SCRIPT -->
+    <script src="app.js"></script>
+  </body>
+</html>
