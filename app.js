@@ -75,6 +75,7 @@ let imgAdd = (input, link, div) => {
 };
 
 // Izracunaj eventListener ===========================================================
+
 izracunajBtn.addEventListener("click", () => {
   // variables
   let ruzeCena = ruzeInput.value * 150;
@@ -117,7 +118,7 @@ izracunajBtn.addEventListener("click", () => {
       porudzbinaSection.appendChild(cenaBezPopusta);
       izracunajBtn.disabled = true;
     }
-    //Placanje Karticom
+    // Placanje Karticom
   } else if (karticaRadio.checked == true) {
     if (bombonjeraChkbox.checked == true) {
       cenaZaSve += 500;
