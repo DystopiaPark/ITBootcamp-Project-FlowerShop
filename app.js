@@ -1,42 +1,47 @@
-// VARIABLES ============================================================
+// HTML VARIABLES ============================================================
 
 let cvecaraForm = document.getElementById("cvecara-form");
 
 // Cvece section variables
 
 let ruzeInput = document.getElementById("ruze-input");
-
 let ljiljaniInput = document.getElementById("ljiljani-input");
-
 let gerberiInput = document.getElementById("gerberi-input");
 
 // Dodatni pokloni section variables
 
 let bombonjeraChkbox = document.getElementById("bombonjera-chkbox");
-
 let cokoladaChkbox = document.getElementById("cokolada-chkbox");
-
 let sampanjacChkbox = document.getElementById("sampanjac-chkbox");
 
 // Placanje section variables
 
 let kesRadio = document.getElementById("kes-radio");
-
 let karticaRadio = document.getElementById("kartica-radio");
 
 // Buttons section variables
 
 let izracunajBtn = document.getElementById("izracunaj-btn");
-
 let resetujBtn = document.getElementById("resetuj-btn");
 
 // Porudzbina section variables
 
 let porudzbinaSection = document.getElementById("porudzbina-section");
 
+// JS VARIABLES =================================================================
+
+var cenaBezPopusta;
+var cenaSaPopustom;
+var bombonjera;
+var cokolada;
+var sampanjac;
+var ruzaDiv = document.createElement("div");
+var ljiljanDiv = document.createElement("div");
+var gerberDiv = document.createElement("div");
+
 // FUNCTIONALITY ====================================================================
 
-// PREVENT DEFAUL FUNCTION for ".", "-" and "e" ============================
+// PREVENT DEFAUL FUNCTION for ".", "-" and "e"
 
 let preventDefault = (input) => {
   input.addEventListener("keypress", (e) => {
@@ -48,19 +53,30 @@ let preventDefault = (input) => {
 preventDefault(ruzeInput);
 preventDefault(ljiljaniInput);
 preventDefault(gerberiInput);
-// =========================================================================
 
-var cenaBezPopusta;
-var cenaSaPopustom;
-var bombonjera;
-var cokolada;
-var sampanjac;
-var ruzaDiv = document.createElement("div");
-var ljiljanDiv = document.createElement("div");
-var gerberDiv = document.createElement("div");
+// ImagesAdd FUNCTION
+let imgAdd = (input, link, div) => {
+  if (input.value < 10) {
+    for (let i = 0; i < input.value; i++) {
+      let img = document.createElement("img");
+      img.src = link;
+      porudzbinaSection.appendChild(div);
+      div.appendChild(img);
+    }
+  } else if (input.value >= 10) {
+    let img = document.createElement("img");
+    img.src = link;
+    porudzbinaSection.appendChild(div);
+    div.appendChild(img);
+    let brojRuza = document.createElement("span");
+    brojRuza.textContent = `x ${input.value}`;
+    div.appendChild(brojRuza);
+  }
+};
 
-// Izracunaj eventListener
+// Izracunaj eventListener ===========================================================
 izracunajBtn.addEventListener("click", () => {
+  // variables
   let ruzeCena = ruzeInput.value * 150;
   let ljiljaniCena = ljiljaniInput.value * 120;
   let gerberiCena = gerberiInput.value * 70;
@@ -70,57 +86,10 @@ izracunajBtn.addEventListener("click", () => {
   let ljiljanImgLink = "/slike/lily.png";
   let gerberImgLink = "/slike/gerber.jpg";
 
-  // IMAGES RUZE
-  if (ruzeInput.value < 10) {
-    for (let i = 0; i < ruzeInput.value; i++) {
-      let ruzaImg = document.createElement("img");
-      ruzaImg.src = ruzaImgLink;
-      porudzbinaSection.appendChild(ruzaDiv);
-      ruzaDiv.appendChild(ruzaImg);
-    }
-  } else if (ruzeInput.value >= 10) {
-    let ruzaImg = document.createElement("img");
-    ruzaImg.src = ruzaImgLink;
-    porudzbinaSection.appendChild(ruzaDiv);
-    ruzaDiv.appendChild(ruzaImg);
-    let brojRuza = document.createElement("span");
-    brojRuza.textContent = `x ${ruzeInput.value}`;
-    ruzaDiv.appendChild(brojRuza);
-  }
-  // IMAGES LJILJANI
-  if (ljiljaniInput.value < 10) {
-    for (let i = 0; i < ljiljaniInput.value; i++) {
-      let ljiljanImg = document.createElement("img");
-      ljiljanImg.src = ljiljanImgLink;
-      porudzbinaSection.appendChild(ljiljanDiv);
-      ljiljanDiv.appendChild(ljiljanImg);
-    }
-  } else if (ljiljaniInput.value >= 10) {
-    let ljiljanImg = document.createElement("img");
-    ljiljanImg.src = ljiljanImgLink;
-    porudzbinaSection.appendChild(ljiljanDiv);
-    ljiljanDiv.appendChild(ljiljanImg);
-    let brojLjiljana = document.createElement("span");
-    brojLjiljana.textContent = `x ${ljiljaniInput.value}`;
-    ljiljanDiv.appendChild(brojLjiljana);
-  }
-  // IMAGE GERBERI
-  if (gerberiInput.value < 10) {
-    for (let i = 0; i < gerberiInput.value && i < 10; i++) {
-      let gerberImg = document.createElement("img");
-      gerberImg.src = gerberImgLink;
-      porudzbinaSection.appendChild(gerberDiv);
-      gerberDiv.appendChild(gerberImg);
-    }
-  } else if (gerberiInput.value >= 10) {
-    let gerberImg = document.createElement("img");
-    gerberImg.src = gerberImgLink;
-    porudzbinaSection.appendChild(gerberDiv);
-    gerberDiv.appendChild(gerberImg);
-    let brojGerbera = document.createElement("span");
-    brojGerbera.textContent = `x ${gerberiInput.value}`;
-    gerberDiv.appendChild(brojGerbera);
-  }
+  imgAdd(ruzeInput, ruzaImgLink, ruzaDiv);
+  imgAdd(ljiljaniInput, ljiljanImgLink, ljiljanDiv);
+  imgAdd(gerberiInput, gerberImgLink, gerberDiv);
+
   // PLACANJE
   // Placanje Kesom
   if (kesRadio.checked == true) {
@@ -146,6 +115,7 @@ izracunajBtn.addEventListener("click", () => {
       cenaBezPopusta = document.createElement("p");
       cenaBezPopusta.textContent = `Cena je: ${cenaZaSve}`;
       porudzbinaSection.appendChild(cenaBezPopusta);
+      izracunajBtn.disabled = true;
     }
     //Placanje Karticom
   } else if (karticaRadio.checked == true) {
@@ -191,7 +161,7 @@ izracunajBtn.addEventListener("click", () => {
   }
 });
 
-// Resetuj eventListener
+// Resetuj eventListener ========================================================
 resetujBtn.addEventListener("click", () => {
   // cenaBezPopusta
   if (cenaBezPopusta != undefined) {
