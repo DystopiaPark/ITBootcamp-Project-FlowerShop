@@ -83,9 +83,9 @@ izracunajBtn.addEventListener("click", () => {
   let gerberiCena = gerberiInput.value * 70;
   let cenaZaSve = ruzeCena + ljiljaniCena + gerberiCena;
   let cenaPopust = 0;
-  let ruzaImgLink = "/slike/rose.jpg";
+  let ruzaImgLink = "/slike/rose.png";
   let ljiljanImgLink = "/slike/lily.png";
-  let gerberImgLink = "/slike/gerber.jpg";
+  let gerberImgLink = "/slike/gerber.png";
 
   imgAdd(ruzeInput, ruzaImgLink, ruzaDiv);
   imgAdd(ljiljaniInput, ljiljanImgLink, ljiljanDiv);
