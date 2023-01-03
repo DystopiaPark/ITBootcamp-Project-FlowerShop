@@ -117,15 +117,6 @@ izracunajBtn.addEventListener("click", () => {
       cenaBezPopusta.textContent = `Cena je: ${cenaZaSve}`;
       porudzbinaSection.appendChild(cenaBezPopusta);
       izracunajBtn.disabled = true;
-      if (
-        cvecaraForm.offsetHeight + heading.offsetHeight >
-        document.body.offsetHeight
-      ) {
-        document.body.style.height = `${
-          cvecaraForm.offsetHeight + heading.offsetHeight
-        }px`;
-        console.log(document.body.style.height);
-      }
     }
     // Placanje Karticom
   } else if (karticaRadio.checked == true) {
@@ -161,15 +152,6 @@ izracunajBtn.addEventListener("click", () => {
       cenaSaPopustom.textContent = `Cena sa popustom je: ${cenaPopust}`;
       porudzbinaSection.appendChild(cenaSaPopustom);
       izracunajBtn.disabled = true;
-      if (
-        cvecaraForm.offsetHeight + heading.offsetHeight >
-        document.body.offsetHeight
-      ) {
-        document.body.style.height = `${
-          cvecaraForm.offsetHeight + heading.offsetHeight
-        }px`;
-        console.log(document.body.style.height);
-      }
     }
   } else {
     cenaBezPopusta = undefined;
@@ -209,6 +191,4 @@ resetujBtn.addEventListener("click", () => {
   ljiljanDiv.textContent = "";
   gerberDiv.textContent = "";
   izracunajBtn.disabled = false;
-  // reset body height
-  document.body.style.height = "100vh";
 });
