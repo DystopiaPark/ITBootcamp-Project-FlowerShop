@@ -100,6 +100,9 @@ main {
   height: 780px;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(212, 138, 0, 0.4)),
     url("/slike/tree.jpg") no-repeat center/cover;
+  color: var(--clr-grey-9);
+}
+#heading {
   color: #ffcc70;
 }
 fieldset {
@@ -123,6 +126,7 @@ form {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  margin-top: 0.5rem;
 }
 .btn:hover {
   background: var(--clr-primary-1);
@@ -139,7 +143,7 @@ h2 {
 }
 
 input {
-  color: rgb(212, 138, 0);
+  color: rgb(0, 0, 0);
   accent-color: #ffcc70;
 }
 
