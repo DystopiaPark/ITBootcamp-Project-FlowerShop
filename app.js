@@ -32,6 +32,7 @@ let porudzbinaSection = document.getElementById("porudzbina-section");
 
 var cenaBezPopusta;
 var cenaSaPopustom;
+var cenaPopustBold;
 var bombonjera;
 var cokolada;
 var sampanjac;
@@ -147,10 +148,17 @@ izracunajBtn.addEventListener("click", () => {
     if (cenaZaSve != 0) {
       cenaBezPopusta = document.createElement("p");
       cenaSaPopustom = document.createElement("p");
+      cenaPopustBold = document.createElement("span");
       cenaBezPopusta.textContent = `Cena bez popusta je: ${cenaZaSve}`;
       porudzbinaSection.appendChild(cenaBezPopusta);
-      cenaSaPopustom.textContent = `Cena sa popustom je: ${cenaPopust}`;
+      cenaSaPopustom.textContent = `Cena sa popustom je: `;
+      cenaSaPopustom.style.fontSize = "18px";
+      cenaPopustBold.textContent = `${cenaPopust} din.`;
+      cenaPopustBold.style.fontStyle = "bold";
+      cenaPopustBold.style.fontSize = "22px";
+
       porudzbinaSection.appendChild(cenaSaPopustom);
+      cenaSaPopustom.appendChild(cenaPopustBold);
       izracunajBtn.disabled = true;
     }
   } else {
