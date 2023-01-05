@@ -163,3 +163,11 @@ Media Query
     height: 100vh;
   }
 }
+@media screen and (max-width: 505px) {
+  fieldset {
+    width: 300px;
+  }
+  img {
+    width: 25px;
+  }
+}
