@@ -4,88 +4,88 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cvecara</title>
+    <title>Tree of Life</title>
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main>
-      <h1 id="heading">Cvećara Drvo Života</h1>
+      <h1 id="heading">Tree of Life Flower Shop</h1>
       <form action="get.php" method="get" id="cvecara-form">
         <fieldset>
           <!-- Cvece section -->
-          <h2>Odaberite cveće:</h2>
+          <h2>Choose flowers:</h2>
           <div>
             <input
               type="number"
               name="ruze"
               id="ruze-input"
-              placeholder="Cena po cvetu je 150 din."
-            />&nbsp;&nbsp;&nbsp;Ruže
+              placeholder="Price for one flower is 150 din."
+            />&nbsp;&nbsp;&nbsp;Roses
           </div>
           <div>
             <input
               type="number"
               name="ljiljani"
               id="ljiljani-input"
-              placeholder="Cena po cvetu je 120 din."
-            />&nbsp;&nbsp;&nbsp;Ljiljani
+              placeholder="Price for one flower is 120 din."
+            />&nbsp;&nbsp;&nbsp;Lilies
           </div>
           <div>
             <input
               type="number"
               name="gerberi"
               id="gerberi-input"
-              placeholder="Cena po cvetu je 70 din."
-            />&nbsp;&nbsp;&nbsp;Gerberi
+              placeholder="Price for one flower is 70 din."
+            />&nbsp;&nbsp;&nbsp;Gerberas
           </div>
           <!-- Dodatni pokloni section -->
-          <h2>Dodatni pokloni:</h2>
+          <h2>Additional gifts:</h2>
           <div>
             <input
               type="checkbox"
               name="bombonjera"
               id="bombonjera-chkbox"
-            />&nbsp;&nbsp;&nbsp;Bombonjera
+            />&nbsp;&nbsp;&nbsp;Candy Box
           </div>
           <div>
             <input
               type="checkbox"
               name="cokolada"
               id="cokolada-chkbox"
-            />&nbsp;&nbsp;&nbsp;Cokolada
+            />&nbsp;&nbsp;&nbsp;Chocolate
           </div>
           <div>
             <input
               type="checkbox"
               name="sampanjac"
               id="sampanjac-chkbox"
-            />&nbsp;&nbsp;&nbsp;Šampanjac
+            />&nbsp;&nbsp;&nbsp;Champagne
           </div>
           <!-- Placanje section -->
-          <h2>Plaćanje:</h2>
+          <h2>Payment:</h2>
           <div>
             <input
               type="radio"
               name="placanje"
               id="kes-radio"
               checked
-            />&nbsp;&nbsp;&nbsp;Keš
+            />&nbsp;&nbsp;&nbsp;Cash
           </div>
           <div>
             <input
               type="radio"
               name="placanje"
               id="kartica-radio"
-            />&nbsp;&nbsp;&nbsp;Kartica
+            />&nbsp;&nbsp;&nbsp;Card
           </div>
           <!-- Buttons section -->
           <button type="button" class="btn" id="izracunaj-btn">
-            Izračunaj
+            Calculate
           </button>
-          <button type="reset" class="btn" id="resetuj-btn">Resetuj</button>
+          <button type="reset" class="btn" id="resetuj-btn">Reset</button>
           <!-- Porudzbina section -->
-          <h2>Vaša Porudžbina:</h2>
+          <h2>Your order:</h2>
           <section id="porudzbina-section"></section>
         </fieldset>
       </form>

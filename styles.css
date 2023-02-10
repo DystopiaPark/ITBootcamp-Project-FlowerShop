@@ -146,7 +146,9 @@ input {
   color: rgb(0, 0, 0);
   accent-color: #ffcc70;
 }
-
+input[type="number"] {
+  min-width: 190px;
+}
 h1 {
   text-align: center;
   font-family: var(--ff-secondary);

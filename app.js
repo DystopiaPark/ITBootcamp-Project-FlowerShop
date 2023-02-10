@@ -42,11 +42,11 @@ var gerberDiv = document.createElement("div");
 
 // FUNCTIONALITY ====================================================================
 
-// PREVENT DEFAUL FUNCTION for ".", "-" and "e"
+// PREVENT DEFAUL FUNCTION for ".", "-", "+" and "e"
 
 let preventDefault = (input) => {
   input.addEventListener("keypress", (e) => {
-    if (e.key == "e" || e.key == "-" || e.key == ".") {
+    if (e.key == "e" || e.key == "-" || e.key == "." || e.key == "+") {
       e.preventDefault();
     }
   });
@@ -99,23 +99,23 @@ izracunajBtn.addEventListener("click", () => {
       cenaZaSve += 500;
       bombonjera = document.createElement("p");
       porudzbinaSection.appendChild(bombonjera);
-      bombonjera.textContent = "+ bombonjera";
+      bombonjera.textContent = "+ Candy Box";
     }
     if (cokoladaChkbox.checked == true) {
       cenaZaSve += 500;
       cokolada = document.createElement("p");
       porudzbinaSection.appendChild(cokolada);
-      cokolada.textContent = "+ cokolada";
+      cokolada.textContent = "+ Chocolate";
     }
     if (sampanjacChkbox.checked == true) {
       cenaZaSve += 500;
       sampanjac = document.createElement("p");
       porudzbinaSection.appendChild(sampanjac);
-      sampanjac.textContent = "+ sampanjac";
+      sampanjac.textContent = "+ Champagne";
     }
     if (cenaZaSve != 0) {
       cenaBezPopusta = document.createElement("p");
-      cenaBezPopusta.textContent = `Cena je: ${cenaZaSve}`;
+      cenaBezPopusta.textContent = `The price is: ${cenaZaSve}`;
       porudzbinaSection.appendChild(cenaBezPopusta);
       izracunajBtn.disabled = true;
     }
@@ -125,19 +125,19 @@ izracunajBtn.addEventListener("click", () => {
       cenaZaSve += 500;
       bombonjera = document.createElement("p");
       porudzbinaSection.appendChild(bombonjera);
-      bombonjera.textContent = "+ bombonjera";
+      bombonjera.textContent = "+ Candy Box";
     }
     if (cokoladaChkbox.checked == true) {
       cenaZaSve += 500;
       cokolada = document.createElement("p");
       porudzbinaSection.appendChild(cokolada);
-      cokolada.textContent = "+ cokolada";
+      cokolada.textContent = "+ Chocolate";
     }
     if (sampanjacChkbox.checked == true) {
       cenaZaSve += 500;
       sampanjac = document.createElement("p");
       porudzbinaSection.appendChild(sampanjac);
-      sampanjac.textContent = "+ sampanjac";
+      sampanjac.textContent = "+ Champagne";
     }
 
     if (cenaZaSve > 2000) {
@@ -149,24 +149,17 @@ izracunajBtn.addEventListener("click", () => {
       cenaBezPopusta = document.createElement("p");
       cenaSaPopustom = document.createElement("p");
       cenaPopustBold = document.createElement("span");
-      cenaBezPopusta.textContent = `Cena bez popusta je: ${cenaZaSve}`;
+      cenaBezPopusta.textContent = `Price without discount: ${cenaZaSve}`;
       porudzbinaSection.appendChild(cenaBezPopusta);
-      cenaSaPopustom.textContent = `Cena sa popustom je: `;
+      cenaSaPopustom.textContent = `Price with discount: `;
       cenaSaPopustom.style.fontSize = "18px";
       cenaPopustBold.textContent = `${cenaPopust} din.`;
       cenaPopustBold.style.fontStyle = "bold";
       cenaPopustBold.style.fontSize = "22px";
-
       porudzbinaSection.appendChild(cenaSaPopustom);
       cenaSaPopustom.appendChild(cenaPopustBold);
       izracunajBtn.disabled = true;
     }
-  } else {
-    cenaBezPopusta = undefined;
-    cenaSaPopustom = undefined;
-    bombonjera = undefined;
-    cokolada = undefined;
-    sampanjac = undefined;
   }
 });
 
